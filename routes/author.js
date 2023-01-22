@@ -1,5 +1,5 @@
-import express from 'express'
-import Author from '../model/author.js'
+const express = require('express');
+const Author = require('../model/author.js');
 const router=express.Router()
 
 // All Author Route
@@ -10,8 +10,8 @@ router.get('/',async(req,res)=>{
    }
    try {
       const authors= await Author.find(searchOptions)
-      res.render('authors/index',{
-         authors : authors,
+      res.render('./authors/index',{
+         author : authors,
          searchOptions: req.query
       })
    } catch {
@@ -35,10 +35,10 @@ router.post('/',async(req,res)=>{
       res.redirect('authors')
    } catch {
       res.render('authors/new',{
-         author:author,
-         errorMessage:'Name is required'
+         author: author,
+         errorMessage: 'Name is required'
       })
    }
 })
 
-export default router;
+module.exports =router;

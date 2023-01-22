@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 mongoose.set('strictQuery',false)
 const connectDB= async ()=>{
@@ -14,4 +14,4 @@ const connectDB= async ()=>{
    }
 }
 
-export default connectDB;
+module.exports = connectDB

@@ -1,11 +1,10 @@
-import expressEjsLayouts from 'express-ejs-layouts';
-import mongoose, { model, Schema } from 'mongoose';
+const mongoose = require('mongoose');
 
-const authorSchema= new Schema({
+const authorSchema= new mongoose.Schema({
    name:{
       type:String,
       required:true
    }
 })
 
-export default mongoose.model('Author',authorSchema)
+module.exports = mongoose.model('Author', authorSchema)

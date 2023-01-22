@@ -1,10 +1,11 @@
-import express  from 'express'
-import expressLayouts from 'express-ejs-layouts'
-import indexRouter from './routes/index.js'
-import authorRouter from './routes/author.js';
-import dotenv from 'dotenv'
-import connectDB from './db.js';
-import bodyParser from 'body-parser';
+const express =require('express');
+const expressLayouts =require('express-ejs-layouts');
+const indexRouter =require('./routes/index.js');
+const authorRouter =require('./routes/author.js');
+const booksRouter = require('./routes/books.js');
+const dotenv = require('dotenv');
+const connectDB = require('./db.js');
+const bodyParser = require('body-parser');
 
 
 const app=express()
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 // Routers
 app.use('/',indexRouter)
 app.use('/authors',authorRouter)
+app.use('/books',booksRouter)
 
 // Connection to database
 connectDB()
