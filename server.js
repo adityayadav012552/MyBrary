@@ -6,6 +6,7 @@ const booksRouter = require('./routes/books.js');
 const dotenv = require('dotenv');
 const connectDB = require('./db.js');
 const bodyParser = require('body-parser');
+const methodOverride= require('method-override')
 
 
 const app=express()
@@ -20,6 +21,7 @@ app.set('layout','./layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
+app.use(methodOverride('_method'))
 
 // Routers
 app.use('/',indexRouter)
