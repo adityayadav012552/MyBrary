@@ -35,6 +35,6 @@ connectDB()
 
 
 app.listen(
-   process.env.PORT || 5000,
+   process.env.PORT || 4000,
    ()=> console.log('server listening')
 )
